@@ -59,7 +59,7 @@ python -m pip install .
 python -m unittest discover -s tests -v
 ```
 
-GitHub Actions is configured for Python 3.10–3.14 on Ubuntu and a Python 3.12 smoke/test job on Windows. These are configured CI targets, not a claim that hosted CI has run. Local verification details are in [VALIDATION.md](docs/VALIDATION.md).
+GitHub Actions is configured for Python 3.10–3.14 on Ubuntu and a Python 3.12 smoke/test job on Windows. All six jobs passed for the initial implementation; see [the verified run](https://github.com/maheshgit-design/s3-lifecycle-preview/actions/runs/34147365103). Verification details are in [VALIDATION.md](docs/VALIDATION.md).
 
 ## Why a limited simulator?
 
