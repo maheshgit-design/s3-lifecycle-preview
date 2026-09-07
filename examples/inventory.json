@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "versioning": "Enabled",
+  "complete": true,
+  "object_lock": false,
+  "replication": false,
+  "objects": [
+    {"key": "logs/app.json", "version_id": "v2", "is_latest": true, "delete_marker": false,
+     "last_modified": "2026-03-01T12:00:00Z", "size": 262144, "storage_class": "STANDARD", "tags": {"env": "demo"}},
+    {"key": "logs/app.json", "version_id": "v1", "is_latest": false, "delete_marker": false,
+     "last_modified": "2026-01-01T12:00:00Z", "noncurrent_since": "2026-03-01T12:00:00Z",
+     "size": 200000, "storage_class": "STANDARD", "tags": {"env": "demo"}},
+    {"key": "logs/tiny.txt", "version_id": "tiny-v1", "is_latest": true, "delete_marker": false,
+     "last_modified": "2026-01-01T12:00:00Z", "size": 1024, "storage_class": "STANDARD", "tags": {}},
+    {"key": "removed.txt", "version_id": "marker-1", "is_latest": true, "delete_marker": true,
+     "last_modified": "2026-02-01T12:00:00Z", "size": 0, "storage_class": "STANDARD", "tags": {}}
+  ]
+}

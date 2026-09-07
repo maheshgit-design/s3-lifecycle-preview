@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "mode": "snapshot-eligibility",
+  "as_of": "2026-04-01T00:00:00Z",
+  "assumptions": [
+    "No state changes are applied",
+    "Scheduled candidates depend on unchanged snapshot metadata",
+    "Modern 128 KiB transition default; explicit size filters override",
+    "Eligibility is not execution time"
+  ],
+  "summary": {
+    "objects_scanned": 4,
+    "candidate_actions": 5,
+    "eligible_actions": 3,
+    "objects_with_competing_candidates": 0
+  },
+  "competing_candidates": [],
+  "events": [
+    {
+      "key": "logs/app.json",
+      "version_id": "v1",
+      "rule_id": "history-one-day",
+      "action": "expire_noncurrent_version",
+      "eligible_at": "2026-03-03T00:00:00Z",
+      "status": "eligible",
+      "size_bytes": 200000,
+      "reason": "age threshold"
+    },
+    {
+      "key": "logs/app.json",
+      "version_id": "v2",
+      "rule_id": "logs-archive",
+      "action": "transition",
+      "eligible_at": "2026-04-01T00:00:00Z",
+      "status": "eligible",
+      "size_bytes": 262144,
+      "reason": "age threshold",
+      "target_storage_class": "GLACIER"
+    },
+    {
+      "key": "logs/app.json",
+      "version_id": "v2",
+      "rule_id": "logs-archive",
+      "action": "create_delete_marker",
+      "eligible_at": "2026-05-31T00:00:00Z",
+      "status": "scheduled",
+      "size_bytes": 262144,
+      "reason": "age threshold"
+    },
+    {
+      "key": "logs/tiny.txt",
+      "version_id": "tiny-v1",
+      "rule_id": "logs-archive",
+      "action": "create_delete_marker",
+      "eligible_at": "2026-04-02T00:00:00Z",
+      "status": "scheduled",
+      "size_bytes": 1024,
+      "reason": "age threshold"
+    },
+    {
+      "key": "removed.txt",
+      "version_id": "marker-1",
+      "rule_id": "clean-markers",
+      "action": "remove_delete_marker",
+      "eligible_at": "2026-04-01T00:00:00Z",
+      "status": "eligible",
+      "size_bytes": 0,
+      "reason": "sole marker observed at as-of; original cleanup eligibility time is unknown"
+    }
+  ]
+}

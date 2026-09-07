@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "s3-lifecycle-preview"
+version = "0.1.0"
+description = "Offline, read-only S3 lifecycle eligibility preview with explicit limitations"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "GPL-3.0-only"}
+dependencies = []
+
+[project.scripts]
+s3-lifecycle-preview = "s3_lifecycle_preview.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

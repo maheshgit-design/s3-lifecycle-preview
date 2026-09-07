@@ -1,0 +1,10 @@
+{
+  "Rules": [
+    {"ID": "logs-archive", "Status": "Enabled", "Filter": {"Prefix": "logs/"},
+     "Transitions": [{"Days": 30, "StorageClass": "GLACIER"}], "Expiration": {"Days": 90}},
+    {"ID": "history-one-day", "Status": "Enabled", "Filter": {},
+     "NoncurrentVersionExpiration": {"NoncurrentDays": 1}},
+    {"ID": "clean-markers", "Status": "Enabled", "Filter": {},
+     "Expiration": {"ExpiredObjectDeleteMarker": true}}
+  ]
+}
